@@ -4,11 +4,10 @@
  *  Created on: 22.05.2015
  *      Author: sbastian
  */
-#include "TstRandom.h"
+#include "dialog.h"
 
 int main(){
-	TstRandom test;
-	test.randomDialog();
+	menueFkt();
 	return 0;
 }
 
