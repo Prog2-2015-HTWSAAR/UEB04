@@ -52,6 +52,7 @@ void Yahtzee::getWuerfe(){
 }
 void Yahtzee::checkDice(){
 	int score = 0;
+	int paar = 0;
 	int number1 = checkNumber(1);
 	int number2 = checkNumber(2);
 	int number3 = checkNumber(3);
@@ -63,10 +64,10 @@ void Yahtzee::checkDice(){
 		cout << "Yahtzee 50 Punkte" << endl;
 	}
 	else if (number1 == 1 && number2 == 1 && number3 == 1 && number4 == 1 && number5 == 1 && number6 == 0){
-		cout << "Kleine Straße 15 Punkte" << endl;
+		cout << "Kleine Strasse 15 Punkte" << endl;
 	}
 	else if (number1 == 0 && number2 == 1 && number3 == 1 && number4 == 1 && number5 == 1 && number6 == 1){
-		cout << "Große Straße 20 Punkte" << endl;
+		cout << "Große Strasse 20 Punkte" << endl;
 	}
 	else {
 		score += calcScore(1, number1);
@@ -80,7 +81,6 @@ void Yahtzee::checkDice(){
 	
 	//cout << "n1 " << number1 << "n2 " << number2 << "n3 " << number3 << "n4 " << number4 << "n5 " << number5 << "n6 " << number6 << "n2 " << endl;
 }
-
 int Yahtzee::checkNumber(int number){
 	int ammount = 0;
 	if (ersterWurf == number){
@@ -104,6 +104,15 @@ int Yahtzee::calcScore(int number, int ammount){
 	int score = 0;
 	if (ammount > 1){
 		score = ammount*number;
+	}
+	if (ammount == 2){
+		cout << "1 Paar" << endl;
+	}
+	if (ammount == 3){
+		cout << "3 Gleiche" << endl;
+	}
+	if (ammount == 4){
+		cout << "4 Gleiche" << endl;
 	}
 	return score;
 }
