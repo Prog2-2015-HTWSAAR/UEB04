@@ -63,7 +63,6 @@ void menueYahtzee(){
 }
 void wurfDialog(int maxWurfAnzahl, int Spieleranzahl){
 	Yahtzee spieler[10];
-	int answer;
 	int wuerfe = 1;
 	int spielercounter = 1;
 	do {
