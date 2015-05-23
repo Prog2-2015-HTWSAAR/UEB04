@@ -14,7 +14,7 @@ TstRandom::TstRandom() {
 }
 
 TstRandom::~TstRandom() {
-	// TODO Auto-generated destructor stub
+	// NOthing to do here!
 }
 
 void TstRandom::fillArray(unsigned int *array, int size){
@@ -32,8 +32,56 @@ void TstRandom::fillArray(char *array, int size){
 		array[i]=random.nextPrintableChar();
 	}
 }
-void TstRandom::sortArray(int *array, int size){
-	// TODO implement this method!
+void TstRandom::sortArray(unsigned int *array, int size){
+	bool swapped = false;
+	do{
+		swapped = false;
+		for(int i=0; i<size-1; i++){
+			if(array[i] > array[i+1]){
+				swap(array,i,i+1);
+				swapped = true;
+			}
+		}
+	} while(swapped);
+}
+void TstRandom::sortArray(unsigned short *array, int size){
+	bool swapped = false;
+	do{
+		swapped = false;
+		for(int i=0; i<size-1; i++){
+			if(array[i] > array[i+1]){
+				swap(array,i,i+1);
+				swapped = true;
+			}
+		}
+	} while(swapped);
+}
+void TstRandom::sortArray(char *array, int size){
+	bool swapped = false;
+	do{
+		swapped = false;
+		for(int i=0; i<size-1; i++){
+			if(array[i] > array[i+1]){
+				swap(array,i,i+1);
+				swapped = true;
+			}
+		}
+	} while(swapped);
+}
+void TstRandom::swap(unsigned int *array, int pos_a, int pos_b){
+	unsigned int temp = array[pos_a];
+	array[pos_a] = array[pos_b];
+	array[pos_b] = temp;
+}
+void TstRandom::swap(unsigned short *array, int pos_a, int pos_b){
+	unsigned short temp = array[pos_a];
+	array[pos_a] = array[pos_b];
+	array[pos_b] = temp;
+}
+void TstRandom::swap(char *array, int pos_a, int pos_b){
+	char temp = array[pos_a];
+	array[pos_a] = array[pos_b];
+	array[pos_b] = temp;
 }
 void TstRandom::arrayAusgeben(unsigned int *array, int size){
 	for(int i=0; i < size; i++){
@@ -53,9 +101,29 @@ void TstRandom::arrayAusgeben(char *array, int size){
 	}
 	cout << endl;
 }
-bool TstRandom::isSorted(int *array){
-	//TODO implement this method!
-	return false;
+bool TstRandom::isSorted(unsigned int *array, int size){
+	for(int i=0; i < size-1; i++){
+		if(array[i] > array[i+1]){
+			return false;
+		}
+	}
+	return true;
+}
+bool TstRandom::isSorted(unsigned short *array, int size){
+	for(int i=0; i < size-1; i++){
+		if(array[i] > array[i+1]){
+			return false;
+		}
+	}
+	return true;
+}
+bool TstRandom::isSorted(char *array, int size){
+	for(int i=0; i < size-1; i++){
+		if(array[i] > array[i+1]){
+			return false;
+		}
+	}
+	return true;
 }
 void TstRandom::randomDialog(){
 	unsigned int *intArray;
@@ -72,11 +140,28 @@ void TstRandom::randomDialog(){
 	fillArray(intArray, size);
 	fillArray(shortArray, size);
 	fillArray(charArray, size);
+	cout << "RAND_MAX: "<< RAND_MAX << endl;
+	cout << endl << "Unsortierte Arrays:" << endl;
 	cout << "Int-Array: " << endl;
 	arrayAusgeben(intArray, size);
 	cout << "Short-Array: " << endl;
 	arrayAusgeben(shortArray, size);
 	cout << "Char-Array: " << endl;
 	arrayAusgeben(charArray, size);
+
+	cout << "Sortiere..." << endl;
+
+	sortArray(intArray, size);
+	sortArray(shortArray, size);
+	sortArray(charArray, size);
+
+	cout << endl << "Sortierte Arrays:" << endl;
+	cout << "Int-Array: " << endl;
+	arrayAusgeben(intArray, size);
+	cout << "Short-Array: " << endl;
+	arrayAusgeben(shortArray, size);
+	cout << "Char-Array: " << endl;
+	arrayAusgeben(charArray, size);
+
 }
 
