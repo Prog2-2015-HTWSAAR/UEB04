@@ -52,7 +52,7 @@ void Yahtzee::getWuerfe(){
 }
 void Yahtzee::checkDice(){
 	int score = 0;
-	int paar = 0;
+	//int paar = 0;
 	int number1 = checkNumber(1);
 	int number2 = checkNumber(2);
 	int number3 = checkNumber(3);

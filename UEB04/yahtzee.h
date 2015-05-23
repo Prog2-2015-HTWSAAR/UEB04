@@ -10,9 +10,9 @@ public:
 	virtual ~Yahtzee();
 	void getWuerfe();
 	void setWurf(int value, int wurfNummer);
-	void Yahtzee::checkDice();
-	int Yahtzee::checkNumber(int number);
-	int Yahtzee::calcScore(int number, int ammount);
+	void checkDice();
+	int checkNumber(int number);
+	int calcScore(int number, int ammount);
 private:
 	int ersterWurf;
 	int zweiterWurf;
