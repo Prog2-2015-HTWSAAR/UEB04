@@ -12,7 +12,6 @@
 class TstRandom {
 public:
 	TstRandom();
-	virtual ~TstRandom();
 	/*
 	 * @brief Fuellt ein unsigned int Feld mit zufaelligen Werten
 	 * @params[out] array Das zu fuellende Feld
