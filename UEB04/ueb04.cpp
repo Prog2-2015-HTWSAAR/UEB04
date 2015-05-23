@@ -1,8 +1,8 @@
 /*
- * ueb04.cpp
+ * @file ueb04.cpp
  *
- *  Created on: 22.05.2015
- *      Author: sbastian
+ * @date 22.05.2015
+ * @author Andreas Schreiner & Simon Bastian
  */
 #include "dialog.h"
 
