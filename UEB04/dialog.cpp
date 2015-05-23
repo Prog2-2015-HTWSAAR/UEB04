@@ -1,5 +1,5 @@
 #include "dialog.h"
-
+#include "Yahtzee.h"
 using namespace std;
 
 void menueFkt(){
@@ -20,6 +20,7 @@ void menueFkt(){
 			testObj.randomDialog();
 			break;
 		case 2:
+			menueYahtzee();
 			break;
 		default:
 			cout << "-> FEHLERHAFTE EINGABE <-" << endl;
@@ -28,7 +29,8 @@ void menueFkt(){
 }
 void menueYahtzee(){
 	int answer;
-	TstRandom testObj;
+	int spieleranzahl;
+
 	do {
 		cout << "-------------------------------" << endl;
 		cout << "(1) Einmal Wurfeln" << endl;
@@ -42,13 +44,72 @@ void menueYahtzee(){
 			cout << "ENDE" << endl;
 			break;
 		case 1:
+			wurfDialog(1, 1);
 			break;
 		case 2:
+			wurfDialog(5, 1);
+			//wurfDialog(1);
 			break;
 		case 3:
+			cin >> spieleranzahl;
+			wurfDialog(5, spieleranzahl);
 			break;
 		default:
 			cout << "-> FEHLERHAFTE EINGABE <-" << endl;
 		}
 	} while (answer != 0);
+}
+void wurfDialog(int maxWurfAnzahl, int Spieleranzahl){
+	Yahtzee spieler[10];
+	int answer;
+	int wuerfe= 1;
+	int spielercounter;
+
+	do {
+		cout << "-------------------------------" << endl;
+		cout << "(1) Wurfeln" << endl;
+		cout << "(0) -EXIT-" << endl << endl;
+		cout << "Waehlen sie eine Option: ";
+		cin >> answer;
+		switch (answer){
+		case 0:
+			cout << "ENDE" << endl;
+			break;
+		case 1:
+			spielercounter = 1;
+			do {
+				if (wuerfe <= maxWurfAnzahl){
+					werfe(spieler[spielercounter], wuerfe);
+				}
+				else
+				{
+					cout << "MAX anzahl der Wuerfe Erreicht" << endl;
+				}
+				spieler[spielercounter].getWuerfe();
+				spielercounter++;
+			} while (spielercounter <= Spieleranzahl);
+			break;
+		default:
+			cout << "-> FEHLERHAFTE EINGABE <-" << endl;
+		}
+		wuerfe++;
+	} while (answer != 0);
+
+}
+
+void werfe(Yahtzee& spieler, int wurfAnzahl){
+	int wurf = 0;
+	Random random;
+	while (wurf == 0) {
+		 wurf = random.nextInt(6);
+	} 
+
+	spieler.setWurf(wurf, wurfAnzahl);
+}
+void ausgabe(Yahtzee spieler[], int Spieleranzahl){
+	int spielercounter = 1;
+	do {
+		spieler[spielercounter].getWuerfe();
+		spielercounter++;
+	} while (spielercounter <= Spieleranzahl);
 }
