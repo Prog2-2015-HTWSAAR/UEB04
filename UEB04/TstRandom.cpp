@@ -11,7 +11,6 @@
 using namespace std;
 
 TstRandom::TstRandom(){}
-TstRandom::~TstRandom(){}
 /*
  * @brief Fuellt ein unsigned int Feld mit zufaelligen Werten
  * @params[out] array Das zu fuellende Feld
