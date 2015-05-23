@@ -9,6 +9,8 @@
 #include "Random.h"
 #include <iostream>
 using namespace std;
+TstRandom::TstRandom(){
+}
 /*
  * @brief Fuellt ein unsigned int Feld mit zufaelligen Werten
  * @params[out] array Das zu fuellende Feld
