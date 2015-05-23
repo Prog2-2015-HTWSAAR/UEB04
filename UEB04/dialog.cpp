@@ -79,23 +79,24 @@ void wurfDialog(int maxWurfAnzahl, int Spieleranzahl){
 		case 1:
 			spielercounter = 1;
 			do {
-
+				cout << "Spieler " << spielercounter << endl;
+				wuerfe = 1;
+				while (wuerfe <= maxWurfAnzahl){
+			
+				werfe(spieler[spielercounter], wuerfe);
+				wuerfe++;
 				delay(1000);
-				if (wuerfe <= maxWurfAnzahl){
-					werfe(spieler[spielercounter], wuerfe);
-				}
-				else
-				{
-					cout << "MAX anzahl der Wuerfe Erreicht" << endl;
-				}
+				} 
 				spieler[spielercounter].getWuerfe();
+				spieler[spielercounter].checkDice();
+				cout << endl;
 				spielercounter++;
 			} while (spielercounter <= Spieleranzahl);
 			break;
 		default:
 			cout << "-> FEHLERHAFTE EINGABE <-" << endl;
 		}
-		wuerfe++;
+		
 	} while (answer != 0);
 
 }
