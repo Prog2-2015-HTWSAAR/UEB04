@@ -52,6 +52,7 @@ void menueYahtzee(){
 			//wurfDialog(1);
 			break;
 		case 3:
+			cout << "Spieleranzahl: ";
 			cin >> spieleranzahl;
 			wurfDialog(5, spieleranzahl);
 			break;
@@ -63,30 +64,30 @@ void menueYahtzee(){
 void wurfDialog(int maxWurfAnzahl, int Spieleranzahl){
 	Yahtzee spieler[10];
 	int answer;
-	int wuerfe= 1;
-	int spielercounter = 1;		
-			do {
-				cout << "Spieler " << spielercounter << endl;
-				wuerfe = 1;
-				while (wuerfe <= maxWurfAnzahl){
-			
-				werfe(spieler[spielercounter], wuerfe);
-				wuerfe++;
-				delay(1000);
-				} 
-				spieler[spielercounter].getWuerfe();
-				spieler[spielercounter].checkDice();
-				cout << endl;
-				spielercounter++;
-			} while (spielercounter <= Spieleranzahl);
+	int wuerfe = 1;
+	int spielercounter = 1;
+	do {
+		cout << "Spieler " << spielercounter << endl;
+		wuerfe = 1;
+		while (wuerfe <= maxWurfAnzahl){
+
+			werfe(spieler[spielercounter], wuerfe);
+			wuerfe++;
+			delay(1000);
+		}
+		spieler[spielercounter].getWuerfe();
+		spieler[spielercounter].checkDice();
+		cout << endl;
+		spielercounter++;
+	} while (spielercounter <= Spieleranzahl);
 }
 
 void werfe(Yahtzee& spieler, int wurfAnzahl){
 	int wurf = 0;
 	Random random;
 	while (wurf == 0) {
-		 wurf = random.nextInt(6);
-	} 
+		wurf = random.nextInt(6);
+	}
 
 	spieler.setWurf(wurf, wurfAnzahl);
 }
