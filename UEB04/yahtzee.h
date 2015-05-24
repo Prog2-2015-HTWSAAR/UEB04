@@ -13,7 +13,7 @@ public:
 	void checkDice();
 	int checkNumber(int number);
 	int calcScore(int number, int ammount);
-
+	 
 private:
 	int wuerfeArray[5];
 };

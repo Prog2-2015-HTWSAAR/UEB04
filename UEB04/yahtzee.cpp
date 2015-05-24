@@ -116,3 +116,4 @@ int Yahtzee::calcScore(int number, int ammount){
 	}
 	return score;
 }
+ 

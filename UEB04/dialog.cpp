@@ -80,7 +80,7 @@ void wurfControl(int maxWurfAnzahl, int Spieleranzahl){
 		spielercounter++;
 	} while (spielercounter <= Spieleranzahl);
 }
-
+ 
 void werfe(Yahtzee& spieler, int wurfAnzahl){
 	int wurf = 0;
 	Random random;
