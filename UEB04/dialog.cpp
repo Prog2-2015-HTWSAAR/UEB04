@@ -45,23 +45,23 @@ void menueYahtzee(){
 			cout << "ENDE" << endl;
 			break;
 		case 1:
-			wurfDialog(1, 1);
+			wurfControl(1, 1);
 			break;
 		case 2:
-			wurfDialog(5, 1);
-			//wurfDialog(1);
+			wurfControl(5, 1);
+			//wurfControl(1);
 			break;
 		case 3:
 			cout << "Spieleranzahl: ";
 			cin >> spieleranzahl;
-			wurfDialog(5, spieleranzahl);
+			wurfControl(5, spieleranzahl);
 			break;
 		default:
 			cout << "-> FEHLERHAFTE EINGABE <-" << endl;
 		}
 	} while (answer != 0);
 }
-void wurfDialog(int maxWurfAnzahl, int Spieleranzahl){
+void wurfControl(int maxWurfAnzahl, int Spieleranzahl){
 	Yahtzee spieler[10];
 	int wuerfe = 1;
 	int spielercounter = 1;

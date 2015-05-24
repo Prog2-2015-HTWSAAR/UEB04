@@ -3,11 +3,11 @@ using namespace std;
 
 Yahtzee::Yahtzee()
 {
-	this->ersterWurf = 0;
-	this->zweiterWurf = 0;
-	this->dritterWurf = 0;
-	this->vierterWurf = 0;
-	this->fuenfterWurf = 0;
+	this->wuerfeArray[0] = 0;
+	this->wuerfeArray[1] = 0;
+	this->wuerfeArray[2] = 0;
+	this->wuerfeArray[3] = 0;
+	this->wuerfeArray[4] = 0;
 }
 
 
@@ -17,37 +17,37 @@ Yahtzee::~Yahtzee()
 
 void Yahtzee::setWurf(int value, int wurfNummer){
 	if (wurfNummer == 1){
-		ersterWurf = value;
+		wuerfeArray[0] = value;
 	}
 	if (wurfNummer == 2){
-		zweiterWurf = value;
+		wuerfeArray[1] = value;
 	}
 	if (wurfNummer == 3){
-		dritterWurf = value;
+		wuerfeArray[2] = value;
 	}
 	if (wurfNummer == 4){
-		vierterWurf = value;
+		wuerfeArray[3] = value;
 	}
 	if (wurfNummer == 5){
-		fuenfterWurf = value;
+		wuerfeArray[4] = value;
 	}
 }
 
 void Yahtzee::getWuerfe(){
-	if (ersterWurf > 0) {
-		cout << "Erster   Wurf: " << ersterWurf << endl;
+	if (wuerfeArray[0] > 0) {
+		cout << "Erster   Wurf: " << wuerfeArray[0] << endl;
 	}
-	if (zweiterWurf > 0) {
-		cout << "Zweiter  Wurf: " << zweiterWurf << endl;
+	if (wuerfeArray[1] > 0) {
+		cout << "Zweiter  Wurf: " << wuerfeArray[1] << endl;
 	}
-	if (dritterWurf > 0) {
-		cout << "Dritter  Wurf: " << dritterWurf << endl;
+	if (wuerfeArray[2] > 0) {
+		cout << "Dritter  Wurf: " << wuerfeArray[2] << endl;
 	}
-	if (vierterWurf > 0) {
-		cout << "Vierter  Wurf: " << vierterWurf << endl;
+	if (wuerfeArray[3] > 0) {
+		cout << "Vierter  Wurf: " << wuerfeArray[3] << endl;
 	}
-	if (fuenfterWurf > 0) {
-		cout << "Fuenfter Wurf: " << fuenfterWurf << endl;
+	if (wuerfeArray[4] > 0) {
+		cout << "Fuenfter Wurf: " << wuerfeArray[4] << endl;
 	}
 }
 void Yahtzee::checkDice(){
@@ -68,7 +68,7 @@ void Yahtzee::checkDice(){
 	}
 	else if (number1 == 0 && number2 == 1 && number3 == 1 && number4 == 1 && number5 == 1 && number6 == 1){
 		cout << "Große Strasse 20 Punkte" << endl;
-	}
+	} 
 	else {
 		score += calcScore(1, number1);
 		score += calcScore(2, number2);
@@ -83,19 +83,19 @@ void Yahtzee::checkDice(){
 }
 int Yahtzee::checkNumber(int number){
 	int ammount = 0;
-	if (ersterWurf == number){
+	if (wuerfeArray[0] == number){
 		ammount++;
 	}
-	if (zweiterWurf == number){
+	if (wuerfeArray[1] == number){
 		ammount++;
 	}	
-	if (dritterWurf == number){
+	if (wuerfeArray[2] == number){
 		ammount++;
 	}
-	if (vierterWurf == number){
+	if (wuerfeArray[3] == number){
 		ammount++;
 	}
-	if (fuenfterWurf == number){
+	if (wuerfeArray[4] == number){
 		ammount++;
 	}
 	return ammount;

@@ -13,12 +13,9 @@ public:
 	void checkDice();
 	int checkNumber(int number);
 	int calcScore(int number, int ammount);
+
 private:
-	int ersterWurf;
-	int zweiterWurf;
-	int dritterWurf;
-	int vierterWurf;
-	int fuenfterWurf;
+	int wuerfeArray[5];
 };
 
 #endif
