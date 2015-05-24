@@ -54,7 +54,12 @@ void menueYahtzee(){
 		case 3:
 			cout << "Spieleranzahl: ";
 			cin >> spieleranzahl;
-			wurfControl(5, spieleranzahl);
+			if (spieleranzahl < 5 && spieleranzahl > 1) {
+				wurfControl(5, spieleranzahl);
+			}
+			else {
+				cout << "Spieleranzahl muss zwichen 1 und 5 liegen" << endl;
+			}
 			break;
 		default:
 			cout << "-> FEHLERHAFTE EINGABE <-" << endl;
@@ -62,39 +67,24 @@ void menueYahtzee(){
 	} while (answer != 0);
 }
 void wurfControl(int maxWurfAnzahl, int Spieleranzahl){
-	Yahtzee spieler[10];
+	Yahtzee spieler[5];
+	Yahtzee random[1];
 	int wuerfe = 1;
 	int spielercounter = 1;
 	do {
 		cout << "Spieler " << spielercounter << endl;
-		wuerfe = 1;
-		while (wuerfe <= maxWurfAnzahl){
-
-			werfe(spieler[spielercounter], wuerfe);
+		wuerfe = 0;
+		while (wuerfe < maxWurfAnzahl){
+			
+			random[0].werfeFuenfmal();
+			spieler[wuerfe] = random[0];
 			wuerfe++;
-			delay(1000);
 		}
 		spieler[spielercounter].getWuerfe();
 		spieler[spielercounter].checkDice();
 		cout << endl;
 		spielercounter++;
-	} while (spielercounter <= Spieleranzahl);
-}
- 
-void werfe(Yahtzee& spieler, int wurfAnzahl){
-	int wurf = 0;
-	Random random;
-	while (wurf == 0) {
-		wurf = random.nextInt(6);
-	}
-
-	spieler.setWurf(wurf, wurfAnzahl);
-}
-void ausgabe(Yahtzee spieler[], int Spieleranzahl){
-	int spielercounter = 1;
-	do {
-		spieler[spielercounter].getWuerfe();
-		spielercounter++;
+		delay(1000);
 	} while (spielercounter <= Spieleranzahl);
 }
 

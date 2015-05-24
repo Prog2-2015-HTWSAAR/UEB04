@@ -15,23 +15,6 @@ Yahtzee::~Yahtzee()
 {
 }
 
-void Yahtzee::setWurf(int value, int wurfNummer){
-	if (wurfNummer == 1){
-		wuerfeArray[0] = value;
-	}
-	if (wurfNummer == 2){
-		wuerfeArray[1] = value;
-	}
-	if (wurfNummer == 3){
-		wuerfeArray[2] = value;
-	}
-	if (wurfNummer == 4){
-		wuerfeArray[3] = value;
-	}
-	if (wurfNummer == 5){
-		wuerfeArray[4] = value;
-	}
-}
 
 void Yahtzee::getWuerfe(){
 	if (wuerfeArray[0] > 0) {
@@ -116,4 +99,19 @@ int Yahtzee::calcScore(int number, int ammount){
 	}
 	return score;
 }
- 
+void Yahtzee::werfeFuenfmal(){
+	int wurf = 0;
+	Random random;
+	while (wurf < 5) {
+		
+		wuerfeArray[wurf] = random.nextInt(6);
+		wuerfeArray[wurf]++;
+		wurf++;
+	}
+
+	
+}
+void Yahtzee::werfeEinmal(){
+	Random random;
+	wuerfeArray[0] = random.nextInt(6);
+	}

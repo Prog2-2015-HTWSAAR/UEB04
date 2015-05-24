@@ -13,7 +13,8 @@ public:
 	void checkDice();
 	int checkNumber(int number);
 	int calcScore(int number, int ammount);
-	 
+	void Yahtzee::werfeFuenfmal();
+	void Yahtzee::werfeEinmal();
 private:
 	int wuerfeArray[5];
 };
