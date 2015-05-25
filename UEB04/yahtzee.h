@@ -46,7 +46,7 @@ public:
 	* @brief werfeFuenfmal()
 	* @details  Fkt zum fuenfmal generieren
 	*/
-	void Yahtzee::werfeFuenfmal();
+	void werfeFuenfmal();
 private:
 	/*
 	* @brief wuerfeArray[]
