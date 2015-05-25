@@ -58,7 +58,10 @@ void Yahtzee::checkDice(){
 		cout << "Kleine Strasse 15 Punkte" << endl;
 	}
 	else if (number1 == 0 && number2 == 1 && number3 == 1 && number4 == 1 && number5 == 1 && number6 == 1){
-		cout << "Große Strasse 20 Punkte" << endl;
+		cout << "Grosse Strasse 20 Punkte" << endl;
+	}
+	if ((number1 == 2 || number2 == 2 || number3 == 2 || number4 == 2 || number5 == 2) && (number1 == 3 || number2 == 3 || number3 == 3 || number4 == 3 || number5 == 3)) {
+		cout << "Full House 25 Punkte" << endl;
 	} 
 	else {
 		score += calcScore(1, number1);
@@ -77,20 +80,12 @@ void Yahtzee::checkDice(){
 */
 int Yahtzee::checkNumber(int number){
 	int ammount = 0;
-	if (wuerfeArray[0] == number){
-		ammount++;
-	}
-	if (wuerfeArray[1] == number){
-		ammount++;
-	}	
-	if (wuerfeArray[2] == number){
-		ammount++;
-	}
-	if (wuerfeArray[3] == number){
-		ammount++;
-	}
-	if (wuerfeArray[4] == number){
-		ammount++;
+	int arrayCounter = 0;
+	while (arrayCounter < 5){
+		if (wuerfeArray[arrayCounter] == number){
+			ammount++;
+		}
+		arrayCounter++;
 	}
 	return ammount;
 }

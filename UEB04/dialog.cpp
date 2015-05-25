@@ -28,6 +28,9 @@ void menueFkt(){
 			break;
 		default:
 			cout << "-> FEHLERHAFTE EINGABE <-" << endl;
+			cin.clear();
+			cin.ignore(10000, '\n');
+			break;
 		}
 	} while (answer != 0);
 }
@@ -70,6 +73,9 @@ void menueYahtzee(){
 			break;
 		default:
 			cout << "-> FEHLERHAFTE EINGABE <-" << endl;
+			cin.clear();
+			cin.ignore(10000, '\n');
+			break;
 		}
 	} while (answer != 0);
 }
