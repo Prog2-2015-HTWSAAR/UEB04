@@ -38,7 +38,7 @@ unsigned int Random::nextInt(){
  */
 unsigned int Random::nextInt(unsigned int max){
 	if(max <= 0){
-		throw "Die Obere Grenze muss positiv sein!"
+		throw "Die Obere Grenze muss positiv sein!";
 	}
 	return (rand() % max);
 }
@@ -57,7 +57,7 @@ unsigned short Random::nextShort(){
  */
 unsigned short Random::nextShort(short max){
 	if(max <= 0){
-		throw "Die Obere Grenze muss positiv sein!"
+		throw "Die Obere Grenze muss positiv sein!";
 	}
 	return (unsigned short) (rand() % max);
 }
