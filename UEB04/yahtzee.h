@@ -6,16 +6,52 @@
 class Yahtzee
 {
 public:
+	/*
+	* @brief Standardkonstruktor
+	*/
 	Yahtzee();
+	/*
+	* @brief Standarddekonstruktor
+	*/
 	virtual ~Yahtzee();
+	/*
+	* @brief getWuerfe()
+	* @details  Fkt zum ausgeben aller wuerfe
+	*/
 	void getWuerfe();
-	void setWurf(int value, int wurfNummer);
+	/*
+	* @brief getWurf()
+	* @details  Fkt zum ausgeben eines wurfs
+	*/
+	void getWurf();
+	/*
+	* @brief checkDice()
+	* @details  Fkt zur Punkte ermittlung
+	*/
 	void checkDice();
+	/*
+	* @brief checkNumber()
+	* @details  Fkt zur Ermittlung gleicher Wuerfe
+	* @param number
+	*/
 	int checkNumber(int number);
+	/*
+	* @brief calcScore()
+	* @details  Fkt zur Punkte berechnung
+	* @param number
+	* @param ammount
+	*/
 	int calcScore(int number, int ammount);
+	/*
+	* @brief werfeFuenfmal()
+	* @details  Fkt zum fuenfmal generieren
+	*/
 	void Yahtzee::werfeFuenfmal();
-	void Yahtzee::werfeEinmal();
 private:
+	/*
+	* @brief wuerfeArray[]
+	* @details Speicherung der wuerfe
+	*/
 	int wuerfeArray[5];
 };
 

@@ -2,7 +2,10 @@
 #include "Yahtzee.h"
 
 using namespace std;
-
+/*
+* @brief menueFkt()
+* @details Oberstes Menue
+*/
 void menueFkt(){
 	int answer;
 	TstRandom testObj;
@@ -28,6 +31,10 @@ void menueFkt(){
 		}
 	} while (answer != 0);
 }
+/*
+* @brief menueYahtzee()
+* @details unteres Menue
+*/
 void menueYahtzee(){
 	int answer;
 	int spieleranzahl;
@@ -66,9 +73,14 @@ void menueYahtzee(){
 		}
 	} while (answer != 0);
 }
+/*
+* @brief wurfControl()
+* @details Steuerungs Modul fuer Yahtze
+* @param maxWurfAnzahl
+* @param Spieleranzahl
+*/
 void wurfControl(int maxWurfAnzahl, int Spieleranzahl){
 	Yahtzee spieler[5];
-	Yahtzee random[1];
 	int wuerfe = 1;
 	int spielercounter = 1;
 	do {
@@ -76,12 +88,17 @@ void wurfControl(int maxWurfAnzahl, int Spieleranzahl){
 		wuerfe = 0;
 		while (wuerfe < maxWurfAnzahl){
 			
-			random[0].werfeFuenfmal();
-			spieler[wuerfe] = random[0];
+			spieler[wuerfe].werfeFuenfmal();
 			wuerfe++;
 		}
-		spieler[spielercounter].getWuerfe();
-		spieler[spielercounter].checkDice();
+		if (maxWurfAnzahl != 1){
+
+			spieler[spielercounter].getWuerfe();
+			spieler[spielercounter].checkDice();
+		}
+		else {
+			spieler[0].getWurf();
+		}
 		cout << endl;
 		spielercounter++;
 		delay(1000);
@@ -91,12 +108,19 @@ void wurfControl(int maxWurfAnzahl, int Spieleranzahl){
 #if defined(__WIN32__) || defined(_WIN32) || defined(WIN32) || defined(__WINDOWS__) || defined(__TOS_WIN__)
 
 #include <windows.h>
-
+/*
+* @brief delay()
+* @details delay fkt windows
+* @param ms
+*/
 inline void delay(unsigned long ms)
 {
 	Sleep(ms);
 }
-
+/*
+* @brief delay()
+* @details delay fkt unix
+*/
 #else  /* presume POSIX */
 
 #include <unistd.h>

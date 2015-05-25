@@ -1,6 +1,8 @@
 #include "Yahtzee.h"
 using namespace std;
-
+/*
+* @brief Standardkonstruktor
+*/
 Yahtzee::Yahtzee()
 {
 	this->wuerfeArray[0] = 0;
@@ -10,29 +12,35 @@ Yahtzee::Yahtzee()
 	this->wuerfeArray[4] = 0;
 }
 
-
+/*
+* @brief Standarddekonstruktor
+*/
 Yahtzee::~Yahtzee()
 {
 }
 
-
+/*
+* @brief getWuerfe()
+* @details  Fkt zum ausgeben aller wuerfe
+*/
 void Yahtzee::getWuerfe(){
-	if (wuerfeArray[0] > 0) {
 		cout << "Erster   Wurf: " << wuerfeArray[0] << endl;
-	}
-	if (wuerfeArray[1] > 0) {
 		cout << "Zweiter  Wurf: " << wuerfeArray[1] << endl;
-	}
-	if (wuerfeArray[2] > 0) {
 		cout << "Dritter  Wurf: " << wuerfeArray[2] << endl;
-	}
-	if (wuerfeArray[3] > 0) {
 		cout << "Vierter  Wurf: " << wuerfeArray[3] << endl;
-	}
-	if (wuerfeArray[4] > 0) {
 		cout << "Fuenfter Wurf: " << wuerfeArray[4] << endl;
-	}
 }
+/*
+* @brief getWurf()
+* @details  Fkt zum ausgeben eines wurfs
+*/
+void Yahtzee::getWurf(){
+		cout << "Wurf: " << wuerfeArray[0] << endl;
+}
+/*
+* @brief checkDice()
+* @details  Fkt zur Punkte ermittlung
+*/
 void Yahtzee::checkDice(){
 	int score = 0;
 	//int paar = 0;
@@ -60,10 +68,13 @@ void Yahtzee::checkDice(){
 		score += calcScore(5, number5);
 		score += calcScore(6, number6);
 		cout << score << " Punkte" << endl;
-	}
-	
-	//cout << "n1 " << number1 << "n2 " << number2 << "n3 " << number3 << "n4 " << number4 << "n5 " << number5 << "n6 " << number6 << "n2 " << endl;
+	}	
 }
+/*
+* @brief checkNumber()
+* @details  Fkt zur Ermittlung gleicher Wuerfe
+* @param number
+*/
 int Yahtzee::checkNumber(int number){
 	int ammount = 0;
 	if (wuerfeArray[0] == number){
@@ -83,13 +94,19 @@ int Yahtzee::checkNumber(int number){
 	}
 	return ammount;
 }
+/*
+* @brief calcScore()
+* @details  Fkt zur Punkte berechnung
+* @param number
+* @param ammount
+*/
 int Yahtzee::calcScore(int number, int ammount){
 	int score = 0;
 	if (ammount > 1){
 		score = ammount*number;
 	}
 	if (ammount == 2){
-		cout << "1 Paar" << endl;
+		cout << "Paar Gefunden" << endl;
 	}
 	if (ammount == 3){
 		cout << "3 Gleiche" << endl;
@@ -99,6 +116,10 @@ int Yahtzee::calcScore(int number, int ammount){
 	}
 	return score;
 }
+/*
+* @brief werfeFuenfmal()
+* @details  Fkt zum fuenfmal generieren
+*/
 void Yahtzee::werfeFuenfmal(){
 	int wurf = 0;
 	Random random;
@@ -111,7 +132,3 @@ void Yahtzee::werfeFuenfmal(){
 
 	
 }
-void Yahtzee::werfeEinmal(){
-	Random random;
-	wuerfeArray[0] = random.nextInt(6);
-	}
