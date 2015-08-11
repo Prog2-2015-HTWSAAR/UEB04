@@ -52,6 +52,7 @@ private:
 	* @brief wuerfeArray[]
 	* @details Speicherung der wuerfe
 	*/
+	Random random;
 	int wuerfeArray[5];
 };
 

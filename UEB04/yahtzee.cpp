@@ -117,7 +117,6 @@ int Yahtzee::calcScore(int number, int ammount){
 */
 void Yahtzee::werfeFuenfmal(){
 	int wurf = 0;
-	Random random;
 	while (wurf < 5) {
 		
 		wuerfeArray[wurf] = random.nextInt(6);

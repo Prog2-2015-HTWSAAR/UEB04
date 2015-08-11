@@ -11,10 +11,7 @@
 using namespace std;
 
 TstRandom::TstRandom(){}
-<<<<<<< HEAD
-=======
 
->>>>>>> b
 /*
  * @brief Fuellt ein unsigned int Feld mit zufaelligen Werten
  * @param[out] array Das zu fuellende Feld
@@ -46,132 +43,61 @@ void TstRandom::fillArray(char *array, int size){
 	}
 }
 /*
- * @brief Sortiert ein unsigned int Feld
+ * @brief Sortiert ein Feld
  * @param[in,out] array das zu sortierende Feld
  * @param[in] size Groesse des Feldes
  */
-void TstRandom::sortArray(unsigned int *array, int size){
+template<typename T>
+void TstRandom::sortArray(T *array, int size){
 	//Bubble-Sort
-	bool swapped = false;
+	bool isSwapped = false;
+	int grenze = size-1;
 	do{
-		swapped = false;
-		for(int i=0; i<size-1; i++){
+		isSwapped = false;
+		for(int i=0; i<grenze; i++){
 			if(array[i] > array[i+1]){
 				swap(array,i,i+1);
-				swapped = true;
+				isSwapped = true;
 			}
 		}
-	} while(swapped);
+	} while(isSwapped);
 }
+
+
 /*
- * @brief Sortiert ein unsigned short Feld
- * @param[in,out] array das zu sortierende Feld
- * @param[in] size Groesse des Feldes
- */
-void TstRandom::sortArray(unsigned short *array, int size){
-	//Bubble-Sort
-	bool swapped = false;
-	do{
-		swapped = false;
-		for(int i=0; i<size-1; i++){
-			if(array[i] > array[i+1]){
-				swap(array,i,i+1);
-				swapped = true;
-			}
-		}
-	} while(swapped);
-}
-/*
- * @brief Sortiert ein char Feld
- * @param[in,out] array das zu sortierende Feld
- * @param[in] size Groesse des Feldes
- */
-void TstRandom::sortArray(char *array, int size){
-	//Bubble-Sort
-	bool swapped = false;
-	do{
-		swapped = false;
-		for(int i=0; i<size-1; i++){
-			if(array[i] > array[i+1]){
-				swap(array,i,i+1);
-				swapped = true;
-			}
-		}
-	} while(swapped);
-}
-/*
- * @brieft tauscht zwei Werte eines unsigned int Feldes
+ * @brieft tauscht zwei Werte eines Feldes
  * @param[in,out] array das Feld
  * @param pos_a Position des erste Wertes
  * @param pos_b Position des zweiten Wertes
  */
-void TstRandom::swap(unsigned int *array, int pos_a, int pos_b){
-	unsigned int temp = array[pos_a];
+template<typename T>
+void TstRandom::swap(T *array, int pos_a, int pos_b){
+	T temp = array[pos_a];
 	array[pos_a] = array[pos_b];
 	array[pos_b] = temp;
 }
+
 /*
- * @brieft tauscht zwei Werte eines unsigned short Feldes
- * @param[in,out] array das Feld
- * @param pos_a Position des erste Wertes
- * @param pos_b Position des zweiten Wertes
- */
-void TstRandom::swap(unsigned short *array, int pos_a, int pos_b){
-	unsigned short temp = array[pos_a];
-	array[pos_a] = array[pos_b];
-	array[pos_b] = temp;
-}
-/*
- * @brieft tauscht zwei Werte eines char Feldes
- * @param[in,out] array das Feld
- * @param pos_a Position des erste Wertes
- * @param pos_b Position des zweiten Wertes
- */
-void TstRandom::swap(char *array, int pos_a, int pos_b){
-	char temp = array[pos_a];
-	array[pos_a] = array[pos_b];
-	array[pos_b] = temp;
-}
-/*
- * @brief Gibt ein unsigned int Feld aus
+ * @brief Gibt ein Feld aus
  * @param array das Feld
  * @param size Groesse des Feldes
  */
-void TstRandom::arrayAusgeben(unsigned int *array, int size){
+template<typename T>
+void TstRandom::arrayAusgeben(T *array, int size){
 	for(int i=0; i < size; i++){
 		cout << array[i] << " ";
 	}
 	cout << endl;
 }
+
 /*
- * @brief Gibt ein unsigned short Feld aus
- * @param array das Feld
- * @param size Groesse des Feldes
- */
-void TstRandom::arrayAusgeben(unsigned short *array, int size){
-	for(int i=0; i < size; i++){
-		cout << array[i] << " ";
-	}
-	cout << endl;
-}
-/*
- * @brief Gibt ein char Feld aus
- * @param array das Feld
- * @param size Groesse des Feldes
- */
-void TstRandom::arrayAusgeben(char *array, int size){
-	for(int i=0; i < size; i++){
-		cout << array[i] << " ";
-	}
-	cout << endl;
-}
-/*
- * @brief Ueberprueft die Sortiertheit eines unsigned int Feldes
+ * @brief Ueberprueft die Sortiertheit eines Feldes
  * @param array das Feld
  * @param size Groesse des Feldes
  * @returns true wenn das Feld sortiert ist, sonst false
  */
-bool TstRandom::isSorted(unsigned int *array, int size){
+template<typename T>
+bool TstRandom::isSorted(T *array, int size){
 	for(int i=0; i < size-1; i++){
 		if(array[i] > array[i+1]){
 			return false;
@@ -179,34 +105,7 @@ bool TstRandom::isSorted(unsigned int *array, int size){
 	}
 	return true;
 }
-/*
- * @brief Ueberprueft die Sortiertheit eines unsigned short Feldes
- * @param array das Feld
- * @param size Groesse des Feldes
- * @returns true wenn das Feld sortiert ist, sonst false
- */
-bool TstRandom::isSorted(unsigned short *array, int size){
-	for(int i=0; i < size-1; i++){
-		if(array[i] > array[i+1]){
-			return false;
-		}
-	}
-	return true;
-}
-/*
- * @brief Ueberprueft die Sortiertheit eines char Feldes
- * @param array das Feld
- * @param size Groesse des Feldes
- * @returns true wenn das Feld sortiert ist, sonst false
- */
-bool TstRandom::isSorted(char *array, int size){
-	for(int i=0; i < size-1; i++){
-		if(array[i] > array[i+1]){
-			return false;
-		}
-	}
-	return true;
-}
+
 /*
  * @brief Dialog der fuer ein vom Benutzer angegebene Groesse
  * Felder erzeugt, sie fuellt, und sortiert
@@ -220,9 +119,9 @@ void TstRandom::randomDialog(){
 
 	cout << "Groesse der Arrays: ";
 	cin >> size;
-	intArray = (unsigned int*) malloc(sizeof(unsigned int)*size);
-	shortArray = (unsigned short*) malloc(sizeof(unsigned short)*size);
-	charArray = (char*) malloc(sizeof(char)*size);
+	intArray = new unsigned int[size];
+	shortArray = new unsigned short[size];
+	charArray = new char[size];
 
 	fillArray(intArray, size);
 	fillArray(shortArray, size);

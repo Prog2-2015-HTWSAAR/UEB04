@@ -37,17 +37,19 @@ unsigned int Random::nextInt(){
  * @returns Zufaelliger Wert zwischen 0 (inklusive) und max (exklusive)
  */
 unsigned int Random::nextInt(unsigned int max){
+	unsigned int erg = 0;
 	if(max <= 0){
 		throw "Die Obere Grenze muss positiv sein!";
 	}
-	return (rand() % max);
+	erg = nextInt() % max;
+	return erg;
 }
 /*
  * @brief Liefert einen zufaelligen unsigned Shortwert
  * @returns Zufaelliger Wert zwischen 0 und SHRT_MAX, inklusive
  */
 unsigned short Random::nextShort(){
-	return (unsigned short) rand();
+	return (unsigned short) nextInt();
 }
 /*
  * @brief Liefert eine zufaelligen unsigned Shortwert mit einem
@@ -56,10 +58,12 @@ unsigned short Random::nextShort(){
  * @returns Zufaelliger Wert zwischen 0 (inklusive) und max (exklusive)
  */
 unsigned short Random::nextShort(short max){
+	unsigned short erg = 0;
 	if(max <= 0){
 		throw "Die Obere Grenze muss positiv sein!";
 	}
-	return (unsigned short) (rand() % max);
+	erg = (unsigned short) (nextInt() % max);
+	return erg;
 }
 /*
  * @brief Liefert eine zufaelliges druckbares ASCII-Zeichen
@@ -68,5 +72,5 @@ unsigned short Random::nextShort(short max){
  * @returns Zufaelliges zufaelliges druckbares ASCII-Zeichen
  */
 unsigned char Random::nextPrintableChar(){
-	return nextInt(95)+32;
+	return nextInt(rangeOfPrintableChars)+firstPrintableChar;
 }

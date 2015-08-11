@@ -108,7 +108,7 @@ void wurfControl(int maxWurfAnzahl, int Spieleranzahl){
 		}
 		cout << endl;
 		spielercounter++;
-		delay(1000);
+		//delay(1000);
 	} while (spielercounter <= Spieleranzahl);
 }
 

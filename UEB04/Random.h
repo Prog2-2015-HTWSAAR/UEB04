@@ -59,6 +59,8 @@ public:
 	 * @returns Zufaelliges zufaelliges druckbares ASCII-Zeichen
 	 */
 	unsigned char nextPrintableChar();
+	static const int firstPrintableChar = 32;
+	static const int rangeOfPrintableChars = 95;
 };
 
 #endif /* RANDOM_H_ */
