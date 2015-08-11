@@ -33,10 +33,13 @@ unsigned int Random::nextInt(){
 /*
  * @brief Liefert eine zufaelligen unsigned Integerwert mit einem
  * Vorgegebenen Maximum
- * @param max exklusives Maximum darf nicht negativ sein!
+ * @param max exklusives Maximum muss positiv sein!
  * @returns Zufaelliger Wert zwischen 0 (inklusive) und max (exklusive)
  */
 unsigned int Random::nextInt(unsigned int max){
+	if(max <= 0){
+		throw "Die Obere Grenze muss positiv sein!";
+	}
 	return (rand() % max);
 }
 /*
@@ -49,10 +52,13 @@ unsigned short Random::nextShort(){
 /*
  * @brief Liefert eine zufaelligen unsigned Shortwert mit einem
  * Vorgegebenen Maximum
- * @param max exklusives Maximum darf nicht negativ sein!
+ * @param max exklusives Maximum muss positiv sein!
  * @returns Zufaelliger Wert zwischen 0 (inklusive) und max (exklusive)
  */
 unsigned short Random::nextShort(short max){
+	if(max <= 0){
+		throw "Die Obere Grenze muss positiv sein!";
+	}
 	return (unsigned short) (rand() % max);
 }
 /*

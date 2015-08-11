@@ -3,10 +3,27 @@
 #include "yahtzee.h"
 #include "Random.h"
 #include "TstRandom.h"
+/*
+* @brief menueFkt()
+* @details Oberstes Menue
+*/
 void menueFkt();
+/*
+* @brief menueYahtzee()
+* @details unteres Menue
+*/
 void menueYahtzee();
-void wurfDialog(int maxWurfAnzahl, int Spieleranzahl);
-void werfe(Yahtzee& spieler, int wurfAnzahl);
+/*
+* @brief wurfControl()
+* @details Steuerungs Modul fuer Yahtze
+* @param maxWurfAnzahl
+* @param Spieleranzahl
+*/
+void wurfControl(int maxWurfAnzahl, int Spieleranzahl);
+/*
+* @brief delay()
+* @details delay fkt windows
+* @param ms
+*/
 inline void delay(unsigned long ms);
-
 #endif /* DIALOG_H_ */

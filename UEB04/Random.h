@@ -36,7 +36,7 @@ public:
 	/*
 	 * @brief Liefert eine zufaelligen unsigned Integerwert mit einem
 	 * Vorgegebenen Maximum
-	 * @param max exklusives Maximum darf nicht negativ sein!
+	 * @param max exklusives Maximum muss positiv sein!
 	 * @returns Zufaelliger Wert zwischen 0 (inklusive) und max (exklusive)
 	 */
 	unsigned int nextInt(unsigned int max);
@@ -48,7 +48,7 @@ public:
 	/*
 	 * @brief Liefert eine zufaelligen unsigned Shortwert mit einem
 	 * Vorgegebenen Maximum
-	 * @param max exklusives Maximum darf nicht negativ sein!
+	 * @param max exklusives Maximum muss positiv sein!
 	 * @returns Zufaelliger Wert zwischen 0 (inklusive) und max (exklusive)
 	 */
 	unsigned short nextShort(short max);
